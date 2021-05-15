@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Game Blog</title>
+    <link rel="stylesheet" type="text/css" href="new.css"> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:wght@400;700&family=Dosis:wght@400;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <p>
+      <%= form_with scope: :game, url: game_create_path, local: true do |f| %>
+
+      <div>
+        <% if @game.errors.any? %>
+          <ul>
+            <% @game.errors.full_messages.each do |message| %>
+              <li>
+              <%= message %>
+              </li>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
+
+      <div>
+        <%= f.label :game_name %>
+        <%= f.text_field :game_name %>
+      </div>
+      
+      <div>
+        <%= f.label :game_type %>
+        <%= f.text_field :game_type %>
+      </div>
+      
+      <div>
+        <%= f.label :game_tag_1 %>
+        <%= f.text_field :game_tag_1 %>
+      </div>
+      
+      <div>
+        <%= f.label :game_tag_2 %>
+        <%= f.text_field :game_tag_2 %>
+      </div>
+      
+      <div>
+        <%= f.label :game_tag_3 %>
+        <%= f.text_field :game_tag_3 %>
+      </div>
+      
+      <div>
+        <%= f.label :game_tag_4 %>
+        <%= f.text_field :game_tag_4 %>
+      </div>
+      
+      <div>
+        <%= f.label :game_tag_5 %>
+        <%= f.text_field :game_tag_5 %>
+      </div>
+
+      <div class='initial_score'>
+        <%= f.text_field :score, value: 0 %>
+      </div>
+      
+      <div>
+        <%= f.submit %>
+      </div>
+      
+      <% end %>
+    </p>
+  </body>
+</html>

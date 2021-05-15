@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  get '/games' => 'games#index'
+  get '/games/new' => 'games#new'
+  post '/games' => 'games#create', as: 'game_create'
 end
