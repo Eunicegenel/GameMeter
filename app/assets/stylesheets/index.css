@@ -13,6 +13,7 @@ body {
   left: 0;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   width: 100vw;
   height: 100vh;
   background-color: #ffbba6;
@@ -24,6 +25,7 @@ body {
   opacity: 1;
   display: flex;
 }
+
 
 .cards {
   width: 100vw;

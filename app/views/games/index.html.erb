@@ -11,6 +11,7 @@
   </head>
   <body>
     <%= link_to 'Add New Game', games_new_path %>
+    <%= link_to 'Edit Game Info', games_update_path %>
     <br>
     
     <div class="cards">
@@ -32,6 +33,9 @@
 
     <div class="preloader" id="preloader">
       <img class="preload_anim" src="https://media3.giphy.com/media/3oEjHYlwvUK5p9AIbm/giphy.gif">
+      <div class="preload_load">
+        <%= image_tag("loading.gif") %>
+      </div>
     </div>
 
     <%= javascript_pack_tag 'index.js' %>
