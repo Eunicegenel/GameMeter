@@ -18,11 +18,15 @@ class GamesController < ApplicationController
           render :new
         end
       end
+
+      def details
+        @game = Game.find_by(id:params[:game_id])
+      end
     
       private
     
       def game_params
-        params.require(:game).permit(:game_name,:game_type,:game_tag_1,
-        :game_tag_2,:game_tag_3,:game_tag_4,:game_tag_5,:score,:image,:gist)
+        params.require(:game).permit(:game_name,:game_type,:game_tag_1,:game_tag_2,
+        :game_tag_3,:game_tag_4,:game_tag_5,:score,:image,:gist,:gamelink)
       end
 end

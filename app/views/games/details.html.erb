@@ -1,0 +1,27 @@
+<head>
+  <link rel="stylesheet" type="text/css" href="details.css"> 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:wght@400;700&family=Dosis:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="game_detes"> 
+    <img class="game_img" src=<%= @game.image %> alt="Card image cap">
+    <div class="game_info">
+      <h1 class="game_font1"><%= @game.game_name %></h1>
+      <h2 class="game_font1 yellow"><%= @game.score %> ⭐</h2>
+      <h3 class="game_font2"><%= @game.game_type %></h3>
+      <h4 class="game_font1"><%= @game.game_tag_1 %> &nbsp <%= @game.game_tag_2 %> 
+      &nbsp <%= @game.game_tag_3 %> &nbsp <%= @game.game_tag_4 %>
+      &nbsp <%= @game.game_tag_5 %></h4>
+      <h4 class="game_font2 gist"><%= @game.gist %></h4>
+      <h3 class="game_font1"><a href=<%= @game.gamelink %> class="gamelink" id="gamelink" target="_blank">PLAY NOW</a></h3>
+    </div>
+  </div>
+
+
+
+  <%= javascript_pack_tag 'details.js' %>
+</body>

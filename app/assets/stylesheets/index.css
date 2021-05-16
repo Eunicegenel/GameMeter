@@ -1,6 +1,7 @@
 * {
   padding: 0;
   margin: 0;
+  text-decoration: none;
 }
 
 body {
@@ -65,6 +66,28 @@ body {
   font-weight: bold;
   font-size: 16px;
   line-height: 25px;
+}
+
+.btn_details {
+  text-align: center;
+  border-radius: 0.5rem;
+  background-color: #e74c3c;
+  transition: 0.5s ease;
+  color: white;
+  font-weight: bold;
+  padding: 1rem 4rem;
+}
+
+.btn_details:hover {
+  background-color: #9e2c20;
+  text-decoration: none;
+  color: white;
+}
+
+.btn_area {
+  padding-top: 1rem;
+  width: 100%;
+  text-align: center;
 }
 
 .red { color: #e74c3c; }
