@@ -12,28 +12,7 @@
   <body>
     <%= link_to 'Add New Game', games_new_path %>
     <br>
-    <!-- <table>
-    #   <% @games.each do |game| %>
-    #     <thead>
-    #       <tr>
-    #         <th class="tHeader"><%= game.game_name %></th>
-    #         <td class="tValues"><%= game.game_type %></td>
-    #       </tr>
-    #     </thead>
-
-    #     <tbody>
-          
-    #         <tr>
-    #           <td class="tValues"><%= game.game_tag_1 %></td>
-    #           <td class="tValues"><%= game.game_tag_2 %></td>
-    #           <td class="tValues"><%= game.game_tag_3 %></td>
-    #           <td class="tValues"><%= game.game_tag_4 %></td>
-    #           <td class="tValues"><%= game.game_tag_5 %></td>
-    #         </tr>
-    #     </tbody>
-    #   <% end %>
-    # <table>-->
-
+    
     <div class="cards">
       <% @games.each do |game| %>
         <div class="card">
@@ -51,7 +30,10 @@
       <% end %>
     <div>
 
+    <div class="preloader" id="preloader">
+      <img class="preload_anim" src="https://media3.giphy.com/media/3oEjHYlwvUK5p9AIbm/giphy.gif">
+    </div>
+
+    <%= javascript_pack_tag 'index.js' %>
   </body>
 </html>
-
-

@@ -1,0 +1,1 @@
+setTimeout(function(){ document.getElementById('preloader').style.opacity = 0 }, 3000);
