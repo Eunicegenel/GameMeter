@@ -10,29 +10,48 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:wght@400;700&family=Dosis:wght@400;700&display=swap" rel="stylesheet">
   </head>
   <body>
-    <table>
-      <% @games.each do |game| %>
-        <thead>
-          <tr>
-            <th class="tHeader"><%= game.game_name %></th>
-            <td class="tValues"><%= game.game_type %></td>
-          </tr>
-        </thead>
+    <%= link_to 'Add New Game', games_new_path %>
+    <br>
+    <!-- <table>
+    #   <% @games.each do |game| %>
+    #     <thead>
+    #       <tr>
+    #         <th class="tHeader"><%= game.game_name %></th>
+    #         <td class="tValues"><%= game.game_type %></td>
+    #       </tr>
+    #     </thead>
 
-        <tbody>
+    #     <tbody>
           
-            <tr>
-              <td class="tValues"><%= game.game_tag_1 %></td>
-              <td class="tValues"><%= game.game_tag_2 %></td>
-              <td class="tValues"><%= game.game_tag_3 %></td>
-              <td class="tValues"><%= game.game_tag_4 %></td>
-              <td class="tValues"><%= game.game_tag_5 %></td>
-            </tr>
-        </tbody>
+    #         <tr>
+    #           <td class="tValues"><%= game.game_tag_1 %></td>
+    #           <td class="tValues"><%= game.game_tag_2 %></td>
+    #           <td class="tValues"><%= game.game_tag_3 %></td>
+    #           <td class="tValues"><%= game.game_tag_4 %></td>
+    #           <td class="tValues"><%= game.game_tag_5 %></td>
+    #         </tr>
+    #     </tbody>
+    #   <% end %>
+    # <table>-->
+
+    <div class="cards">
+      <% @games.each do |game| %>
+        <div class="card">
+          <img class="card-img" src=<%= game.image %> alt="Card image cap">
+          <div class="card-body">
+            <h4 class="card-title"><%= game.game_name %></h4>
+            <h4 class="card-score yellow"><%= game.score %> ⭐</h4>
+            <h5 class="card-type"><%= game.game_type %></h5>
+            <h5 class="card-tag"><%= game.game_tag_1 %> &nbsp <%= game.game_tag_2 %> 
+            &nbsp <%= game.game_tag_3 %> &nbsp <%= game.game_tag_4 %>
+            &nbsp <%= game.game_tag_5 %></h5>
+            <a href="#" class="btn btn-primary">Check Comments</a>
+          </div>
+        </div>
       <% end %>
-    <table>
+    <div>
+
   </body>
 </html>
 
 
-<%= link_to 'Add New Game', games_new_path %>

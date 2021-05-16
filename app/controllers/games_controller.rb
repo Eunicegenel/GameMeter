@@ -23,6 +23,6 @@ class GamesController < ApplicationController
     
       def game_params
         params.require(:game).permit(:game_name,:game_type,:game_tag_1,
-        :game_tag_2,:game_tag_3,:game_tag_4,:game_tag_5,:score)
+        :game_tag_2,:game_tag_3,:game_tag_4,:game_tag_5,:score,:image,:gist)
       end
 end

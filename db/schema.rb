@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_15_165039) do
+ActiveRecord::Schema.define(version: 2021_05_16_054113) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,9 @@ ActiveRecord::Schema.define(version: 2021_05_15_165039) do
     t.string "game_tag_4"
     t.string "game_tag_5"
     t.float "score"
+    t.text "image"
+    t.text "gist"
+    t.text "gamelink"
   end
 
   create_table "ratings", force: :cascade do |t|
