@@ -4,10 +4,24 @@
   text-decoration: none;
 }
 
-body {
+.body_bg {
+  position: fixed ;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #ffbba6;
+  z-index: -5;
+}
+
+#movable {
+  position: relative;
+  left: 10rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  transition: 0.5s ease;
+  background-color: #ffbba6;
 }
 
 .game_detes {
@@ -52,6 +66,58 @@ body {
   color: white;
   text-decoration: none;
   background-color: #9e2c20;
+}
+
+.comment-box {
+  width: 70vw;
+  height: auto;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+}
+
+.comment {
+  width: 100%;
+  height: auto;
+  margin-bottom: 5rem;
+  border-radius: 10px;
+  box-shadow: 0.5rem 0.5rem 0.75rem 0.75rem rgba(4,4,4,0.25);
+  padding: 2rem 4rem;
+}
+
+.comment-header {
+  display: grid;
+  grid-template-columns: 90% 10%;
+}
+
+.comment-title, .comment-score {
+  font-family: "Dosis";
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.comment-text {
+  font-family: "Roboto";
+  font-size: 1.75rem;
+  line-height: 3rem;
+}
+
+#comment-btn {
+  margin-left: 3rem;
+  color: white;
+  padding: 1rem 4rem;
+  background-color: #3498db;
+  transition: 0.5s ease;
+}
+
+#comment-btn:hover {
+  color: white;
+  text-decoration: none;
+  background-color: #19557c;
+}
+
+.game_id {
+  /* visibility: hidden; */
 }
 
 .red { color: #e74c3c; }

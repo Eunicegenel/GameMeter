@@ -6,6 +6,10 @@
 
 body {
   overflow-x: hidden;
+  background-color: #ecf0f1;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
 }
 
 .preloader {
@@ -27,14 +31,12 @@ body {
   display: flex;
 }
 
-
 .cards {
-  width: 100vw;
+  width: 80vw;
   height: auto;
   display: flex;
-  flex-wrap: wrap;
-  padding: 50px;
-  justify-content: space-around;
+  flex-flow: row wrap;
+  justify-content: center;
   align-items: center;
 }
 
@@ -42,30 +44,58 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 30rem;
-  height: 60rem;
-  margin: 50px;
-  border-radius: 20px;
-  box-shadow: 0.5rem 0.5rem 0.75rem 0.75rem rgba(4,4,4,0.25);
+  width: 17rem;
+  height: 37rem;
+  margin: 2rem 1rem;
+  border-radius: 10px;
+  box-shadow: 0.15rem 0.15rem 0.25rem 0.25rem rgba(4,4,4,0.25);
   padding: 1rem;
+  background-color: #ecf0f1;
 }
 
 .card-img {
-  width: 28rem;
-  height: 37rem;
+  margin-top: -1rem;
+  width: 17rem;
+  height: 21.5rem;
+  border-radius: 10px;
   object-fit: cover;
 }
 
-.card-title, .card-score {
+.card-title  {
+  margin-top: 0.75rem;
   font-family: "Dosis";
   font-weight: bold;
+  font-size: 1.25rem;
+}
+
+.card-score {
+  margin-top: 0.5rem;
+  font-family: "Dosis";
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+.card-type {
+  margin-top: 0.5rem;
+  font-family: "Dosis";
+  font-size: 1rem;
+  font-weight: 0;
 }
 
 .card-tag {
-  font-family: "Dosis";
-  font-weight: bold;
-  font-size: 16px;
+  margin-top: 0.5rem;
+  font-family: "Roboto";
+  font-size: 0.8rem;
   line-height: 25px;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.tag {
+  border-radius: 20px;
+  padding: 0.25rem 0.75rem;
+  margin: 0.25rem 0.25rem;
+  background-color: #ffbba6;
 }
 
 .btn_details {
@@ -75,7 +105,9 @@ body {
   transition: 0.5s ease;
   color: white;
   font-weight: bold;
-  padding: 1rem 4rem;
+  font-family: "Roboto";
+  font-size: 1rem;
+  padding: 0.75rem 1rem;
 }
 
 .btn_details:hover {
@@ -85,11 +117,18 @@ body {
 }
 
 .btn_area {
-  padding-top: 1rem;
+  margin-top: 1.5rem;
   width: 100%;
   text-align: center;
 }
 
+.tooltip {
+  position: absolute;
+  top: 10;
+  left: 80;
+  z-index: 5;
+}
+
 .red { color: #e74c3c; }
-.yellow { color: #fa991c; }
-.green { color: #2ecc71 }
+.pink { color: #c44f6a; }
+.blue { color: #00a4ff }

@@ -1,27 +1,112 @@
 <head>
-  <link rel="stylesheet" type="text/css" href="details.css"> 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="stylesheet" type="text/css" href="details.css"> <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:wght@400;700&family=Dosis:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="game_detes"> 
-    <img class="game_img" src=<%= @game.image %> alt="Card image cap">
-    <div class="game_info">
-      <h1 class="game_font1"><%= @game.game_name %></h1>
-      <h2 class="game_font1 yellow"><%= @game.score %> ⭐</h2>
-      <h3 class="game_font2"><%= @game.game_type %></h3>
-      <h4 class="game_font1"><%= @game.game_tag_1 %> &nbsp <%= @game.game_tag_2 %> 
-      &nbsp <%= @game.game_tag_3 %> &nbsp <%= @game.game_tag_4 %>
-      &nbsp <%= @game.game_tag_5 %></h4>
-      <h4 class="game_font2 gist"><%= @game.gist %></h4>
-      <h3 class="game_font1"><a href=<%= @game.gamelink %> class="gamelink" id="gamelink" target="_blank">PLAY NOW</a></h3>
+  <p id="update-modal">EDIT GAME</p>
+  <div id="movable">
+    <div class="game_detes"> 
+      <img class="game_img" src=<%= @game.image %> alt="Card image cap">
+      <div class="game_info">
+        <h1 class="game_font1"><%= @game.game_name %></h1>
+        <h2 class="game_font1 blue"><%= @game.score %> ⭐</h2>
+        <h3 class="game_font2"><%= @game.game_type %></h3>
+        <h4 class="game_font1"><%= @game.game_tag_1 %> &nbsp <%= @game.game_tag_2 %> 
+        &nbsp <%= @game.game_tag_3 %> &nbsp <%= @game.game_tag_4 %>
+        &nbsp <%= @game.game_tag_5 %></h4>
+        <h4 class="game_font2 gist"><%= @game.gist %></h4>
+        <h3 class="game_font1">
+          <a href=<%= @game.gamelink %> class="gamelink" id="gamelink" target="_blank">PLAY NOW</a>
+          <%= link_to 'RATE NOW', games_new_path, id:"comment-btn" %>
+        </h3>
+      </div>
     </div>
+
+    <div class="comment-box">
+      <% @comment.each do |rate| %>
+        <div class="comment">
+          <div class="comment-body">
+            <div class="comment-header">
+              <h4 class="comment-title"><%= rate.user_id %></h4>
+              <h4 class="comment-score yellow"><%= rate.rating %> ⭐</h4>
+            </div>
+            <h5 class="comment-text"><%= rate.comment %></h5>
+          </div>
+        </div>
+      <% end %>
+    <div>
   </div>
 
+  <%= form_with scope: :game, method: :put, url: game_update_path, local: true do |f| %>
+    <div>
+      <%= f.text_field :game_id, value:@id  %>
 
+      <div>
+        <%= f.label :game_name %>
+        <%= f.text_field :game_name, value:@game.game_name %>
+      </div>
+      
+      <div>
+        <%= f.label :game_type %>
+        <%= f.text_field :game_type, value:@game.game_type %>
+      </div>
+      
+      <div>
+        <%= f.label :game_tag_1 %>
+        <%= f.text_field :game_tag_1, value:@game.game_tag_1 %>
+      </div>
+      
+      <div>
+        <%= f.label :game_tag_2 %>
+        <%= f.text_field :game_tag_2, value:@game.game_tag_2 %>
+      </div>
+      
+      <div>
+        <%= f.label :game_tag_3 %>
+        <%= f.text_field :game_tag_3, value:@game.game_tag_3 %>
+      </div>
+      
+      <div>
+        <%= f.label :game_tag_4 %>
+        <%= f.text_field :game_tag_4, value:@game.game_tag_4 %>
+      </div>
+      
+      <div>
+        <%= f.label :game_tag_5 %>
+        <%= f.text_field :game_tag_5, value:@game.game_tag_5 %>
+      </div>
+
+      <div>
+        <%= f.label :Gist %>
+        <%= f.text_area :gist, value:@game.gist %>
+      </div>
+
+      <div>
+        <%= f.label :Image_Source %>
+        <%= f.text_field :image, value:@game.image %>
+      </div>
+
+      <div>
+        <%= f.label :Link_Source %>
+        <%= f.text_field :gamelink, value:@game.gamelink %>
+      </div>
+
+      <div class='initial_score'>
+        <%= f.text_field :score, value: 0 %>
+      </div>
+      
+      <div>
+        <%= f.submit :"Update Game" %>
+      </div>
+      
+    </div>
+  <% end %>
+
+  <%= form_with scope: :game, method: :delete, url: game_delete_path, local: true do |f| %>
+      <div>
+        <%= f.submit :"Delete Game" %>
+      </div>  
+  <% end %>
 
   <%= javascript_pack_tag 'details.js' %>
 </body>

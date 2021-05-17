@@ -1,12 +1,11 @@
 <head>
   <link rel="stylesheet" type="text/css" href="index.css"> 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:wght@400;700&family=Dosis:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <div class="tooltip"><%= image_tag("settings.png") %></div>
+  
   <%= link_to 'Add New Game', games_new_path %>
   <br>
   
@@ -16,11 +15,15 @@
         <img class="card-img" src=<%= game.image %> alt="Card image cap">
         <div class="card-body">
           <h4 class="card-title"><%= game.game_name %></h4>
-          <h4 class="card-score yellow"><%= game.score %> ⭐</h4>
+          <h4 class="card-score pink"><%= game.score %> ⭐</h4>
           <h5 class="card-type"><%= game.game_type %></h5>
-          <h5 class="card-tag"><%= game.game_tag_1 %> &nbsp <%= game.game_tag_2 %> 
-          &nbsp <%= game.game_tag_3 %> &nbsp <%= game.game_tag_4 %>
-          &nbsp <%= game.game_tag_5 %></h5>
+          <h5 class="card-tag">
+            <div class="tag"><%= game.game_tag_1 %></div>
+            <div class="tag"><%= game.game_tag_2 %></div>
+            <div class="tag"><%= game.game_tag_3 %></div>
+            <div class="tag"><%= game.game_tag_4 %></div>
+            <div class="tag"><%= game.game_tag_5 %></div>
+          </h5>
           <div class="btn_area">
             <%= link_to 'Check Comments', games_details_path(:game_id => game.id), class:"btn_details" %>
           </div>
@@ -35,6 +38,8 @@
       <%= image_tag("loading.gif") %>
     </div>
   </div>
+
+  
 
   <%= javascript_pack_tag 'index.js' %>
 </body>
