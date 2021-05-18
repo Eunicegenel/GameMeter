@@ -1,14 +1,21 @@
 <head>
   <link rel="stylesheet" type="text/css" href="index.css"> 
+  <link rel="shortcut icon" type="image/png" href="logo.png"/>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:wght@400;700&family=Dosis:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="tooltip"><%= image_tag("settings.png") %></div>
-  
-  <%= link_to 'Add New Game', games_new_path %>
-  <br>
-  
+  <a href="#slider"><%= image_tag("logo1.png", class: "logo") %></a>
+  <div id="slider">
+    <figure>
+      <%= image_tag("game_1.png") %>
+      <%= image_tag("game_2.png") %>
+      <%= image_tag("game_3.png") %>
+      <%= image_tag("game_5.png") %>
+      <%= image_tag("game_1.png") %>
+    </figure>
+  </div>
+
   <div class="cards">
     <% @games.each do |game| %>
       <div class="card">
@@ -39,7 +46,76 @@
     </div>
   </div>
 
-  
+  <div class="tooltip" id="tooltip-Btn"><%= image_tag("settings.png") %></div>
+  <p id="close_modal">×</p>
+
+  <div class="modal_bg" id="tooltipModal">
+    <div class="modal">
+      <h1 class="modal_title" id="modalTitle">Game Meter Tooltip</h1>
+      <div class="action-btn" id="actionBtn">
+        <p class="create_game" id="createGame">ADD GAME</p>
+      </div>
+      <%= form_with scope: :game, url: game_create_path, local: true do |f| %>
+      <div class="create_form" id="createForm">
+          <div class="create_details">
+            <%= f.label :"Game Name", class:"textLabel" %>
+            <%= f.text_field :game_name, class:"textField" %>
+          </div>
+          
+          <div class="create_details">
+            <%= f.label :"Game Type", class:"textLabel" %>
+            <%= f.text_field :game_type, class:"textField" %>
+          </div>
+          
+          <div class="create_details">
+            <%= f.label :"Game Tag", class:"textLabel" %>
+            <%= f.text_field :game_tag_1, class:"textField" %>
+          </div>
+          
+          <div class="create_details">
+            <%= f.label :"Game Tag", class:"textLabel" %>
+            <%= f.text_field :game_tag_2, class:"textField" %>
+          </div>
+          
+          <div class="create_details">
+            <%= f.label :"Game Tag", class:"textLabel" %>
+            <%= f.text_field :game_tag_3, class:"textField" %>
+          </div>
+          
+          <div class="create_details">
+            <%= f.label :"Game Tag", class:"textLabel" %>
+            <%= f.text_field :game_tag_4, class:"textField" %>
+          </div>
+          
+          <div class="create_details">
+            <%= f.label :"Game Tag", class:"textLabel" %>
+            <%= f.text_field :game_tag_5, class:"textField" %>
+          </div>
+
+          <div class="create_details">
+            <%= f.label :"Image Source", class:"textLabel" %>
+            <%= f.text_field :image, class:"textField" %>
+          </div>
+
+          <div class="create_details">
+            <%= f.label :"Link Source", class:"textLabel" %>
+            <%= f.text_field :gamelink, class:"textField" %>
+          </div>
+
+          <div class="create_details">
+            <%= f.label :"Gist", class:"textLabel" %>
+            <%= f.text_area :gist, class:"textArea" %>
+          </div>
+
+          <div>
+            <%= f.hidden_field :score, value: 0 %>
+          </div>
+          
+          <%= f.submit "SAVE GAME", :class => "submit" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
   <%= javascript_pack_tag 'index.js' %>
 </body>
